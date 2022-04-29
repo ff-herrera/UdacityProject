@@ -19,21 +19,21 @@ def get_filters():
         (str) day - name of the day of week to filter by, or "all" to apply no day filter
     """
     print('Hello! Let\'s explore some US bikeshare data!')
-    
+
     # TO DO: get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
     city = input('Enter the name of the city to analyze (Chicago, New York City or Washington): ').lower()
-    
+
     while city not in ['chicago', 'new york city', 'washington']:
         city = input('Invalid city name. Please enter a valid city name (Chicago, New York City or Washington):').lower()
-    
-            
+
+
     # TO DO: get user input for month (all, january, february, ... , june)
     month = input('Enter the month to analyze (January, February, March, April, May or June). Type "all" to apply no month filter: ').lower()
 
     while month not in ['all', 'january', 'february', 'march', 'april', 'may', 'june']:
         month = input('Invalid month name. Please enter a valid month (January, February, March, April, May or June). Type "all" to apply no month filter: ').lower()
-    
-    
+
+
     # TO DO: get user input for day of week (all, monday, tuesday, ... sunday)
     day = input('Enter the day of week to analyze (Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday). Type "all" to apply no day filter: ').lower()
 
@@ -57,7 +57,7 @@ def load_data(city, month, day):
     Returns:
         df - Pandas DataFrame containing city data filtered by month and day
     """
-    
+
     # load data file into a dataframe
     df = pd.DataFrame(pd.read_csv(CITY_DATA[city]))
 
@@ -74,7 +74,7 @@ def load_data(city, month, day):
         # use the index of the months list to get the corresponding int
         months = ['january', 'february', 'march', 'april', 'may', 'june']
         month = months.index(month) + 1
-    
+
         # filter by month to create the new dataframe
         df = df[df['month'] == month]
 
@@ -93,31 +93,31 @@ def raw_data(df):
 
     Args:
         df - Pandas DataFrame containing city data filtered by month and day
-        
+
     """
-    
+
     # ask the user if wants to see 5 rows of raw data
     raw_data = input('\nDo you want to see 5 rows of raw data? (yes or no) ').lower()
-    
+
     while raw_data not in ['yes', 'no']:
         raw_data = input('\nInvalid input. Please enter a valid input (yes or no):').lower()
 
     i = 0
-    
+
     if raw_data == 'yes':
         while raw_data == 'yes':
             print('')
             print(df[i:(i+5)])
             i += 5
             raw_data = input('\nDo you want to see another 5 rows of raw data? (yes or no) ').lower()
-            
+
             while raw_data not in ['yes', 'no']:
                 raw_data = input('\nInvalid input. Please enter a valid input (yes or no):').lower()
-    
-    
+
+
     print('\nLet\'s see some statistics')
     print('-'*40)
-            
+
 
 
 def time_stats(df):
@@ -129,7 +129,7 @@ def time_stats(df):
     # TO DO: display the most common month
     most_common_month = int(df['month'].mode()[0])
     print('The most common month is: {}'.format(most_common_month))
-    
+
 
     # TO DO: display the most common day of week
     most_common_weekday = df['day_of_week'].mode()[0]
@@ -145,7 +145,7 @@ def time_stats(df):
     print('-'*40)
 
 
-    
+
 def station_stats(df):
     """Displays statistics on the most popular stations and trip."""
 
@@ -171,7 +171,7 @@ def station_stats(df):
     print('-'*40)
 
 
-    
+
 def trip_duration_stats(df):
     """Displays statistics on the total and average trip duration."""
 
@@ -192,7 +192,7 @@ def trip_duration_stats(df):
     print('-'*40)
 
 
-    
+
 def user_stats(df):
     """Displays statistics on bikeshare users."""
 
@@ -204,8 +204,8 @@ def user_stats(df):
     print('User types: ')
     print(user_types)
     print('')
-    
-    
+
+
     # TO DO: Display counts of gender
     try:
         user_genders = df['Gender'].value_counts()
@@ -215,7 +215,7 @@ def user_stats(df):
     except:
         print('There is no gender information for this city.')
         print('')
-    
+
 
     # TO DO: Display earliest, most recent, and most common year of birth
     try:
@@ -230,12 +230,12 @@ def user_stats(df):
         print('There is no year of birth information for this city.')
         print('')
 
-        
+
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
 
-    
+
 def main():
     while True:
         city, month, day = get_filters()
@@ -254,3 +254,8 @@ def main():
 
 if __name__ == "__main__":
 	main()
+
+
+
+
+# Comment for Task: Refactor Code
