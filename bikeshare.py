@@ -258,4 +258,5 @@ if __name__ == "__main__":
 
 
 
-# Comment for Task: Refactor Code
+# Additional comment
+# This is an additional comment for the version control project
