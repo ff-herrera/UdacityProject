@@ -18,3 +18,6 @@ washington.csv
 ### Credits
 Fernando Herrera
 Udacity Introduction to Python Course
+
+### Additional comment
+This is an additional comment
